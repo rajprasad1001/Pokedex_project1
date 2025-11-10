@@ -1,13 +1,18 @@
 import PokemonList from "../PokemonList/PokemonList";
 import Search from "../Search/Search";
+import { useNavigate } from "react-router-dom";
 //CSS
 import "./Pokedex.css";
 function Pokedex(){
-    return(
+    const navigate = useNavigate();
+
+    const handleSelectPokemon = (id) => {
+        navigate(`/pokemon/${id}`);
+    };
+    return (
         <div className="pokedex-wrapper">
-        
-        <Search/>
-        <PokemonList/>
+            <Search onSelect={handleSelectPokemon} />
+            <PokemonList />
         </div>
     )
 
